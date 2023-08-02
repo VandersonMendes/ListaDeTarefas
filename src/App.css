@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Global;
+  src: url("./assets/font/Urbanist-Regular.ttf");
+}
+body{
+  background-color: #30394A;
+  font-family: 'Global';
+}
+.container{
+  margin: 0 auto;
+  max-width: 1200px;
+}
+img{
+  width: 100%;
+}

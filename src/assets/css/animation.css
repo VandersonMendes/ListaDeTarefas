@@ -1,0 +1,24 @@
+@keyframes animationRight {
+    to{
+      opacity: 1;
+      transform: initial;
+    }
+}
+
+.animeRight{
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: animationRight 1.4s forwards;
+}
+@keyframes animationTop {
+    to{
+      opacity: 1;
+      transform: initial;
+    }
+}
+
+.animeTop{
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: animationTop 1.4s forwards;
+}

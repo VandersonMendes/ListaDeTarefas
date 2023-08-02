@@ -1,0 +1,13 @@
+.listNav li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: #1DCC48;
+    display: block;
+    bottom: -2px;
+    transition: 200ms ease-in;
+}
+.listNav li:hover::after{
+    width: 100%;
+    transition: 200ms ease-in;
+}
