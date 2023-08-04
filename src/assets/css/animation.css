@@ -22,3 +22,16 @@
   transform: translateY(-50px);
   animation: animationTop 1.4s forwards;
 }
+
+
+.animeLeft{
+opacity: 0;
+transform: translateX(20px);
+animation: animationLeft 1.2s forwards;
+}
+@keyframes animationLeft {
+  to{
+    opacity: 1;
+    transform: initial;
+  }
+}
