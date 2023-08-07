@@ -134,11 +134,11 @@ const Form = () => {
             {singUp &&
                 <div className="animeTop" >
                     <div className="flex justify-center" >
-                        <button className="flex gap-4 my-7  items-center  text-xl lg:text-2xl rounded-full  cursor-pointer p-1 px-10 " onClick={signInGoogle} style={{ background: '#30394A' }} >
+                        <button className="flex gap-4 my-7  items-center  text-base lg:text-2xl rounded-full  cursor-pointer p-1 px-10 " onClick={signInGoogle} style={{ background: '#30394A' }} >
                             <h3 className="font-mediun">Entrar</h3><img src={iconGoogle} className="w-7 max-[600px]:w-5" alt="icone google" />
                         </button>
                     </div>
-                    <form className="flex flex-col gap-2 text-lg font-bold" onSubmit={hadleSubmit}>
+                    <form className="flex flex-col gap-2 text-base md:font-lg font-bold formulario" onSubmit={hadleSubmit}>
                         <label htmlFor="email">Email</label>
                         <input autoComplete="off" type="email" placeholder="Ex: MariaGomes@gmail.com" className="text-black text-lg  md:text-xl" onChange={(event) => {
                             handleChange()
@@ -170,7 +170,7 @@ const Form = () => {
                             <h3 className="font-mediun">Entrar</h3><img src={iconGoogle} className="w-7" alt="icone google" />
                         </button>
                     </div>
-                    <form className="flex flex-col gap-6 " onSubmit={hadleSubmit}>
+                    <form className="flex flex-col gap-6 formulario " onSubmit={hadleSubmit}>
                         <input type="email" placeholder="Email" className="text-black text-lg  md:text-xl" onChange={(event) => {
                             handleChange()
                             setFormState({

@@ -3,3 +3,40 @@
         display: none;
     }
 }
+.formList input,
+.inputTarefa{
+    max-width: 600px;
+    width: 100%;
+    background-color: #344668;
+    padding-left: 1rem;
+    border-top-left-radius: 20px;
+    border:2px solid#ffffff00 ;
+    transition: 200ms all;
+    border-bottom-left-radius: 20px;
+}
+.formList input:focus{
+    outline: none;
+    border:2px solid#93e7b2 ;
+}
+.formList span{
+    position: relative;
+    left: 3.5rem;
+    top: 10px;
+    font-size: 37px;
+}
+.formList input::placeholder{
+    font-size: 23px;
+    color: white;
+    padding-left: 2rem;
+}
+.checkbox{
+    max-width: 50px;
+    width: 100%;
+}
+.buttonSubmit{
+    background-color: #344668;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 4px 20px;
+    border-left: 1px solid white;
+}

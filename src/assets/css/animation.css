@@ -20,7 +20,7 @@
 .animeTop{
   opacity: 0;
   transform: translateY(-50px);
-  animation: animationTop 1.4s forwards;
+  animation: animationTop 1s forwards;
 }
 
 

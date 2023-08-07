@@ -6,7 +6,6 @@ const AppContext = createContext();
 const provider = new GoogleAuthProvider();
 import { useNavigate } from "react-router";
 export function AppProvider({ children }) {
-  const [modal, setModal] = useState<boolean>(false);
   const [login, setLogin] = useState<boolean>(false);
   const auth = getAuth(app);
   const navigate = useNavigate()
@@ -28,7 +27,7 @@ export function AppProvider({ children }) {
   }
   // let a = JSON.parse(localStorage.getItem('auth'))
   return (
-    <AppContext.Provider value={{ login, setLogin, signInGoogle, setModal, modal}}>
+    <AppContext.Provider value={{ login, setLogin, signInGoogle}}>
       {children}
     </AppContext.Provider>
   );

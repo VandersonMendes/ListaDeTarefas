@@ -4,8 +4,7 @@ import  "../../assets/css/animation.css"
 import { useAppProvider } from '../../Context/Context';
 // import from "./listTarefas.css"
 const ListTarefas = () => {
-  const {setModal, modal} = useAppProvider();
-  const user:object = JSON.parse(localStorage.getItem('auth'));
+  const user = JSON.parse(localStorage.getItem('auth'));
   return (
     <section>
       <Header />

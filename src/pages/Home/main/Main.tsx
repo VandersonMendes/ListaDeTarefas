@@ -8,9 +8,9 @@ const Main = () => {
     return (
         <main className="container main animeTop" style={{height:'100%'}}>
             {/* Apresentação */}
-            <section className='flex justify-between flex-col gap-6  md:flex-row  items-center py-2 m-10'>
+            <section className='flex justify-around flex-col gap-6  md:flex-row  items-center py-2 m-10'>
                 <div className='img animeRight'>
-                    <img src={imgHome} alt="imagem da home" className="max-w-xs md:max-w-xl max-[400px]:none" />
+                    <img src={imgHome} alt="imagem da home" className="max-w-sm lg:max-w-lg w-max " />
                 </div>
                 <Form />
                 
