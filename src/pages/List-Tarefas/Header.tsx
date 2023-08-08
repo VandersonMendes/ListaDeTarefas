@@ -26,7 +26,7 @@ const Header = () => {
             <h2 className=' text-base md:text-xl nameUser'>{user.displayName ? user.displayName : user.user.email}</h2>
           </a>
           {modal &&
-            <div className="modalUser absolute  right-50 top-20 bg-black animeTop p-10 max-[768px]:p-5 max-[450px] max-[500]right-1 ease-in flex flex-col items-center gap-4 rounded-b-xl  " style={{ backgroundColor: '#0013357c' }}>
+            <div className="modalUser absolute  right-50 max-[600px]:right-50 top-20 bg-black animeTop p-10 max-[768px]:p-5  ease-in flex flex-col items-center gap-4 rounded-b-xl  " style={{ backgroundColor: '#0013357c' }}>
               <button className="absolute left-5 top-5 text-2xl bg-red-600 px-2 " onClick={() => setModal(false)}>X</button>
               <div className='flex items-center flex-col'>
                 <img src={user.photoURL ? user.photoURL : User} alt="Usuario imagem" className=' w-20 md:w-15 rounded-full  border-4' />

@@ -4,7 +4,8 @@
     }
 }
 .formList input,
-.inputTarefa{
+.inputTarefa,
+.tarefas{
     max-width: 600px;
     width: 100%;
     background-color: #344668;
@@ -29,10 +30,7 @@
     color: white;
     padding-left: 2rem;
 }
-.checkbox{
-    max-width: 50px;
-    width: 100%;
-}
+
 .buttonSubmit{
     background-color: #344668;
     border-top-right-radius: 20px;
@@ -40,3 +38,33 @@
     padding: 4px 20px;
     border-left: 1px solid white;
 }
+
+  
+  .checkbox input {
+    display: none;
+  }
+  
+  .container svg {
+    overflow: visible;
+  }
+  
+  .path {
+    fill: none;
+    stroke: rgb(0, 193, 35);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+  }
+  
+  .container input:checked ~ svg .path {
+    stroke-dasharray: 70.5096664428711 9999999;
+    stroke-dashoffset: -262.2723388671875;
+  }
+  
+  .icon{
+    max-width: 100px;
+    width: 100%;
+  }
