@@ -1,0 +1,19 @@
+.modalContainer{
+    backdrop-filter: blur(2px);
+    overflow:hidden;
+    width: 100%;
+    min-height:100%;
+    color: black;
+    position: absolute;
+    top: auto;
+    bottom: auto;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.inputEdit{
+    width: 600px;
+}
+.card{
+    background-color: #071c42;
+}
