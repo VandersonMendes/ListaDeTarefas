@@ -4,25 +4,29 @@ import iconEdit from '../../assets/iconEdit.svg';
 import iconRemove from '../../assets/icons8-remover.svg';
 import './listTarefas.css';
 import ModalEdit from './ModalEdit';
-import { useAppProvider } from '../../Context/Context';
+
 const Main = () => {
   const [value, setValue] = useState<string>('');
   const [itensArray, setItensArray] = useState<string[]>([]);
   const [modalEdit, setModalEdit] = useState<boolean>(false);
   const [itemSelect, setItemSelect] = useState<string>('');
-  const [valueIndex, setValueIndex] = useState<number>()
-  const {valueEdit} = useAppProvider();
-  useEffect(() =>{
-    const updatedArray = [...itensArray];
-    updatedArray[valueIndex] = value;
-    setItensArray(updatedArray);
-    localStorage.setItem('listTarefas', JSON.stringify(updatedArray));
-  },[value])
-
+  const [valueIndex, setValueIndex] = useState<number>(0);
+  const [valueEdit, setValueEdit] = useState<string>('');
+  const [confirmEdit, setConfirmEdit] = useState<boolean>(false);
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem('listTarefas') || '[]');
     setItensArray(storedItems);
   }, []);
+
+  useEffect(() =>{
+    if(confirmEdit === true){
+      const updatedArray = [...itensArray];
+      updatedArray[valueIndex] = valueEdit;
+      setItensArray(updatedArray);
+      localStorage.setItem('listTarefas', JSON.stringify(updatedArray));
+    }
+    setConfirmEdit(false);
+  },[confirmEdit])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,11 +46,10 @@ const Main = () => {
     setItensArray(updatedArray);
     localStorage.setItem('listTarefas', JSON.stringify(updatedArray));
   };
-
   return (
-    <main className="">
+    <main>
       {itensArray && itensArray.map((item, index) => (
-        <div> {modalEdit && <ModalEdit setModal={setModalEdit} index={index.toString()} value={itemSelect} modal={modalEdit}></ModalEdit>}</div>
+        <div> {modalEdit && <ModalEdit setModal={setModalEdit} index={index.toString()} confirmEdit={setConfirmEdit} value={itemSelect} modal={modalEdit} valueEdit={setValueEdit}></ModalEdit>}</div>
       ))}
 
       <div className="container">
@@ -60,16 +63,16 @@ const Main = () => {
           <input
             type="text"
             placeholder="Digite sua tarefa"
-            className="text-2xl p-2"
+            className="text-xl md:text-2xl p-2 "
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <button className="buttonSubmit flex gap-2">
-            <img src={iconUp} alt="Button Submit" />
+          <button className="buttonSubmit flex gap-2 items-stretch">
+            <img src={iconUp} alt="Button Submit" className='icon' />
           </button>
         </form>
         <form
-          className="text-black text-xl font-bold flex flex-col justify-center align-center gap-3 m-10 formListEdit"
+          className="text-black  font-bold flex flex-col justify-center items-stretch gap-3  md-5 md:m-10 formListEdit"
           onSubmit={(e) => e.preventDefault()}
         >
           {itensArray && itensArray.length > 0 ? (
@@ -86,7 +89,7 @@ const Main = () => {
                   value={item}
                   rows={1}
                   id={index.toString()}
-                  className="inputTarefa text-xl md:text-2xl rounded-lg text-white py-0.5 ml-2"
+                  className="inputTarefa text-xl md:text-2xl rounded-lg text-white ml-1 ml-2 placeholder:text-xl md:placeholder:text-2xl"
                   onFocus={() =>{
                     setModalEdit(true)
                     setItemSelect(item)
@@ -94,17 +97,17 @@ const Main = () => {
                   } }
                 />
 
-                <div className="ml-4 flex gap-2 items-center align-center">
-                  <button className='cursor-pointer p-2 bg-amber-50 rounded-md' onClick={() =>{ 
+                <div className=" ml-2 md:ml-4 flex  gap-1 md:gap-2 items-center align-center">
+                  <button className='cursor-pointer p-1 px-3  bg-amber-50 rounded-md' onClick={() =>{ 
                     setModalEdit(true) 
                     setItemSelect(item)
                     } }><img src={iconEdit} alt="IconEdit" className='icon' /></button>
 
                   <button
-                    className="p-2 bg-red-400 rounded-md"
+                    className="p-1 px-3 bg-red-400 rounded-md "
                     onClick={() => handleClickRemove(index)}
                   >
-                    <img src={iconRemove} alt="IconRemove" />
+                    <img src={iconRemove} alt="IconRemove" className='icon' />
                   </button>
                 </div>
               </div>

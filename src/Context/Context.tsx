@@ -7,7 +7,6 @@ const provider = new GoogleAuthProvider();
 import { useNavigate } from "react-router";
 export function AppProvider({ children }) {
   const [login, setLogin] = useState<boolean>(false);
-  const [valueEdit, setValueEdit] = useState<string>();
   const auth = getAuth(app);
   const navigate = useNavigate()
   const signInGoogle = () => {
@@ -26,9 +25,8 @@ export function AppProvider({ children }) {
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
   }
-  // let a = JSON.parse(localStorage.getItem('auth'))
   return (
-    <AppContext.Provider value={{ login, setLogin, signInGoogle, setValueEdit, valueEdit}}>
+    <AppContext.Provider value={{ login, setLogin, signInGoogle}}>
       {children}
     </AppContext.Provider>
   );

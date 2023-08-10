@@ -58,12 +58,22 @@
     stroke-dasharray: 241 9999999;
     stroke-dashoffset: 0;
   }
-  
+  .path{
+    width: 20%;
+  }
   .container input:checked ~ svg .path {
     stroke-dasharray: 70.5096664428711 9999999;
     stroke-dashoffset: -262.2723388671875;
   }
   .icon{
-    max-width: 100px;
+    max-width: 30px;
     width: 100%;
+    min-width: 30px;
+
   }
+
+@media (max-width:768px) {
+  .icon{
+    min-width: 20px;
+  }
+}

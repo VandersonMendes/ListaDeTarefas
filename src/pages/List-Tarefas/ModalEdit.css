@@ -17,3 +17,13 @@
 .card{
     background-color: #071c42;
 }
+@media (max-width:768px) {
+    .inputEdit{
+        width: 400px;
+    }
+}
+@media (max-width:500px) {
+    .inputEdit{
+        width: 250px;
+    }
+}
