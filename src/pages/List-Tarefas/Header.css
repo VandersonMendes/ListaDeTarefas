@@ -1,0 +1,10 @@
+.modalUser{
+    position: absolute;
+    padding: 2rem;
+    top: 5rem;
+}
+@media (max-width:600px) {
+    .modalUser{
+        left: 10px;
+    }
+}

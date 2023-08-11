@@ -165,9 +165,9 @@ const Form = () => {
                 </div>}
             {signIn &&
                 <div className="animeRight">
-                    <div className="flex justify-center" >
-                        <button className="flex gap-4 my-7  items-center text-2xl rounded-full cursor-pointer p-1 px-10 " style={{ background: '#30394A' }} onClick={signInGoogle}>
-                            <h3 className="font-mediun">Entrar</h3><img src={iconGoogle} className="w-7" alt="icone google" />
+                         <div className="flex justify-center" >
+                        <button className="flex gap-4 my-7  items-center  text-base lg:text-2xl rounded-full  cursor-pointer p-1 px-10 " onClick={signInGoogle} style={{ background: '#30394A' }} >
+                            <h3 className="font-mediun">Entrar</h3><img src={iconGoogle} className="w-7 max-[600px]:w-5" alt="icone google" />
                         </button>
                     </div>
                     <form className="flex flex-col gap-6 formulario " onSubmit={hadleSubmit}>
@@ -178,7 +178,7 @@ const Form = () => {
                                 email: event.currentTarget?.value || ''
                             })
                         }} />
-                        <input type="password" placeholder="Senha" className="text-black  text-lg  md:text-xl" onChange={(event) => {
+                        <input type="password" placeholder="Senha" className="text-black  text-lg  md:text-xl placeholder:text-lg" onChange={(event) => {
                             handleChange()
                             setFormState({
                                 ...formState,

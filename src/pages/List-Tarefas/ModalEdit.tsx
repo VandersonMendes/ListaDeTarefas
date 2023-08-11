@@ -1,6 +1,5 @@
 import React, { MouseEventHandler, useState } from 'react';
 import './ModalEdit.css';
-
 interface PropsType {
   setModal: (value: boolean) => void;
   value: string;
@@ -30,7 +29,8 @@ const ModalEdit: React.FC<PropsType> = ({ setModal, value, modal, valueEdit, con
   return (
     <div className={`modalContainer animeTop ${modal ? 'animeTop' : 'animeTopOut'}`} onClick={handleModal}>
       <div className='modal container flex justify-center'>
-        <div className='flex flex-col card p-9 md:p-12 rounded-xl'>
+        <div className='flex flex-col card p-9 md:p-12 rounded-xl relative'>
+        <button className='buttonClosed text-white bg-red-800 font-bold py-2 px-4' onClick={() => setModal(false)}>X</button>
           <h1 className='text-white text-center text-2xl md:text-4xl mb-5 font-bold'>Altere sua tarefa</h1>
           <form>
             <textarea

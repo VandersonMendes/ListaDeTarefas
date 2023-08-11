@@ -6,7 +6,9 @@ const AppContext = createContext();
 const provider = new GoogleAuthProvider();
 import { useNavigate } from "react-router";
 export function AppProvider({ children }) {
-  const [login, setLogin] = useState<boolean>(false);
+  const [login, setLogin] = useState<boolean>(
+  true
+  );
   const auth = getAuth(app);
   const navigate = useNavigate()
   const signInGoogle = () => {
