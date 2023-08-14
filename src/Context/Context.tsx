@@ -25,9 +25,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (user && user.emailVerified) navigate("/listTarefas");
         setLogin(user.emailVerified);
       })
-      .catch(() => {
-        // Handle the error or remove unused variables
-      });
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import User from "../../assets/user-128.svg";
 import { useNavigate } from 'react-router';
 import "../List-Tarefas/listTarefas.css";
@@ -8,9 +8,11 @@ interface typeUser {
   emailVerified: boolean;
   photoURL: string;
   displayName: string;
+  useremail:string;
+  user:object;
 }
 const Header = () => {
-  const [user, setUser] = useState<typeUser>(JSON.parse(localStorage.getItem('auth')!));
+  const [user] = useState<typeUser>(JSON.parse(localStorage.getItem('auth')!));
   const [modal, setModal] = useState<boolean>(false);
   const navigate = useNavigate();
   const handleAddCount = () =>{

@@ -1,5 +1,5 @@
 import iconGoogle from "../../../assets/1534129544.svg"
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import { useAppProvider } from "../../../Context/Context";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../services/firebaseConfig";
@@ -56,8 +56,8 @@ const Form = () => {
         }
     }
 
-    const hadleSubmit = (event: Event) => {
-        event.preventDefault()
+    const hadleSubmit =  (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         if (formState.email.length === 0 || formState.password.length === 0) {
             setError({
                 ...error,
@@ -108,6 +108,7 @@ const Form = () => {
     }
 
     const {signInGoogle, setLogin} = useAppProvider();
+    console.log(setLogin)
 
     return (
         <div className="form p-6 lg:p-10 rounded-3xl">
