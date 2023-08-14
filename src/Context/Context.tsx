@@ -1,34 +1,37 @@
-
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
 import { app } from "../services/firebaseConfig";
-const AppContext = createContext();
-const provider = new GoogleAuthProvider();
 import { useNavigate } from "react-router";
-export function AppProvider({ children }) {
-  const [login, setLogin] = useState<boolean>(
-  true
-  );
+
+type AppContextType = {
+  login: boolean;
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  signInGoogle: () => void;
+};
+
+const AppContext = createContext<AppContextType | undefined>(undefined);
+const provider = new GoogleAuthProvider();
+
+export function AppProvider({ children }: { children: React.ReactNode }) {
+  const [login, setLogin] = useState<boolean>(true);
   const auth = getAuth(app);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const signInGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
         const user = result.user;
-        localStorage.setItem('auth', JSON.stringify(user))
-        if (user && user.emailVerified) navigate('/listTarefas');
+        localStorage.setItem("auth", JSON.stringify(user));
+        if (user && user.emailVerified) navigate("/listTarefas");
         setLogin(user.emailVerified);
-      }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+      })
+      .catch(() => {
+        // Handle the error or remove unused variables
       });
-  }
+  };
+
   return (
-    <AppContext.Provider value={{ login, setLogin, signInGoogle}}>
+    <AppContext.Provider value={{ login, setLogin, signInGoogle }}>
       {children}
     </AppContext.Provider>
   );

@@ -76,7 +76,7 @@ const Form = () => {
                 navigate('/listTarefas');
                 localStorage.setItem('auth', JSON.stringify(resp))
                 setLogin(true)
-            }).catch((err) =>{
+            }).catch(() =>{
                 setError({
                     ...error,
                     type:true,
@@ -89,7 +89,7 @@ const Form = () => {
                 navigate('/listTarefas');
                 localStorage.setItem('auth', JSON.stringify(resp))
                 setLogin(true);
-            }).catch((err) =>{
+            }).catch(() =>{
                 setError({
                     ...error,
                     type:true,
