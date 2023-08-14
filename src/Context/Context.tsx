@@ -3,15 +3,21 @@ import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
 import { app } from "../services/firebaseConfig";
 import { useNavigate } from "react-router";
 
-type AppContextType = {
+interface AppContextType {
   login: boolean;
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
   signInGoogle: () => void;
-};
+}
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 const provider = new GoogleAuthProvider();
-
+export function useAppProvider() {
+  const context = useContext(AppContext);
+  if(!context){
+    throw new Error('useAppContext must be used within an AppContextProvider');
+  }
+  return context
+  }
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [login, setLogin] = useState<boolean>(true);
   const auth = getAuth(app);
@@ -26,7 +32,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setLogin(user.emailVerified);
       })
   };
-
+  
   return (
     <AppContext.Provider value={{ login, setLogin, signInGoogle }}>
       {children}
@@ -34,7 +40,5 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function useAppProvider() {
-  const context = useContext(AppContext);
-  return context;
-}
+
+

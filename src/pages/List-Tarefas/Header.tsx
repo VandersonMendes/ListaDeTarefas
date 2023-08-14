@@ -11,7 +11,9 @@ interface typeUser {
   useremail:string;
   user:object;
 }
-const Header = () => {
+
+
+const Header:React.FC= () => {
   const [user] = useState<typeUser>(JSON.parse(localStorage.getItem('auth')!));
   const [modal, setModal] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -31,16 +33,16 @@ const Header = () => {
         <nav>
           <a className=' relative flex items-center gap-3 border-2 p-1  px-3 md:px-6 rounded-xl cursor-pointer max-[450px]:p-1' onClick={() => setModal(!modal)}>
             <img src={user.photoURL ? user.photoURL : User} alt="Usuario imagem" className=' w-7 md:w-8 rounded-full ' />
-            <h2 className=' text-base md:text-xl nameUser'>{user.displayName ? user.displayName : user.user.email}</h2>
+            <h2 className=' text-base md:text-xl nameUser'>{user.displayName ? user.displayName : 'User'}</h2>
           </a>
           {modal &&
             <div className="modalUser  ease-in flex flex-col animeLeft items-center gap-4 rounded-xl  " style={{ backgroundColor: '#11213b' }}>
               <button className="absolute left-5 top-5 text-2xl bg-red-600 px-2 " onClick={() => setModal(false)}>X</button>
               <div className='flex items-center flex-col'>
                 <img src={user.photoURL ? user.photoURL : User} alt="Usuario imagem" className=' w-20 md:w-15 rounded-full  border-4' />
-                <h3 className='text-sm md:text-base '>{user.email ? user.email : user.user.email}</h3>
+                <h3 className='text-sm md:text-base '>{user.email ? user.email : 'User'}</h3>
               </div>
-              <h2 className='text-base md:text-2xl '>{user.displayName ? user.displayName : user.user.email}</h2>
+              <h2 className='text-base md:text-2xl '>{user.displayName ? user.displayName : 'User'}</h2>
               <button className='text-base md:text-xl text-red-700 font-black bg-white px-3 rounded-xl' onClick={handleAddCount}><span>Adicione Outra conta</span></button>
             </div>
           }
