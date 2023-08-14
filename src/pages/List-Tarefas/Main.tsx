@@ -5,7 +5,7 @@ import iconRemove from '../../assets/icons8-remover.svg';
 import './listTarefas.css';
 import ModalEdit from './ModalEdit';
 
-const Main = () => {
+const Main: React.FC= () => {
   const [value, setValue] = useState<string>('');
   const [itensArray, setItensArray] = useState<string[]>([]);
   const [modalEdit, setModalEdit] = useState<boolean>(false);
@@ -49,7 +49,7 @@ const Main = () => {
   return (
     <main>
       {itensArray && itensArray.map((item, index) => (
-        <div> {modalEdit && <ModalEdit setModal={setModalEdit} index={index.toString()} confirmEdit={setConfirmEdit} value={itemSelect} modal={modalEdit} valueEdit={setValueEdit}></ModalEdit>}</div>
+        <div> {modalEdit && <ModalEdit setModal={setModalEdit} index={index.toString()}  item={item} confirmEdit={setConfirmEdit} value={itemSelect} modal={modalEdit} valueEdit={setValueEdit}></ModalEdit>}</div>
       ))}
 
       <div className="container">
