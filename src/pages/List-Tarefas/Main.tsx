@@ -5,7 +5,7 @@ import iconRemove from '../../assets/icons8-remover.svg';
 import './listTarefas.css';
 import ModalEdit from './ModalEdit';
 
-const Main: React.FC= () => {
+  const Main: React.FC =  () => {
   const [value, setValue] = useState<string>('');
   const [itensArray, setItensArray] = useState<string[]>([]);
   const [modalEdit, setModalEdit] = useState<boolean>(false);
@@ -39,17 +39,16 @@ const Main: React.FC= () => {
     setValue('');
   };
 
-
-
   const handleClickRemove = (index: number) => {
     const updatedArray = itensArray.filter((_, i) => i !== index);
     setItensArray(updatedArray);
     localStorage.setItem('listTarefas', JSON.stringify(updatedArray));
   };
+  
   return (
     <main>
-      {itensArray && itensArray.map((item, index) => (
-        <div> {modalEdit && <ModalEdit setModal={setModalEdit} index={index.toString()}  item={item} confirmEdit={setConfirmEdit} value={itemSelect} modal={modalEdit} valueEdit={setValueEdit}></ModalEdit>}</div>
+      {itensArray && itensArray.map((item) => (
+        <div key={item}> {modalEdit && <ModalEdit setModal={setModalEdit} confirmEdit={setConfirmEdit} value={itemSelect} modal={modalEdit} valueEdit={setValueEdit}></ModalEdit>}</div>
       ))}
 
       <div className="container">

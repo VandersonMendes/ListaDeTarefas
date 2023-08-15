@@ -4,9 +4,9 @@ import { app } from "../services/firebaseConfig";
 import { useNavigate } from "react-router";
 
 interface AppContextType {
-  login: boolean;
-  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  signInGoogle: () => void;
+  login: boolean,
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>,
+  signInGoogle: () => void
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
