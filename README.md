@@ -5,7 +5,7 @@
 
 <h1 align="center">
   <img 
-    src="https://vandersonmendes.github.io/Portf-lio/assets/img/Projeto%20Pokedex.png"
+    src="https://vandersonmendes.github.io/Portf-lio/assets/img/projeto-pokedex.png"
   />
 </h1>
 
